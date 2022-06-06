@@ -23,6 +23,8 @@
 </template>
 
 <script>
+import bus from '@/utils/bus.js';
+
 export default {
 	computed: {
 		isUserLogin() {
@@ -31,6 +33,7 @@ export default {
 	},
 	methods: {
 		logoutUser() {
+			bus.$emit('show:toast', 'User logged out');
 			this.$store.commit('clearUsername');
 			this.$router.push('/login');
 		},
