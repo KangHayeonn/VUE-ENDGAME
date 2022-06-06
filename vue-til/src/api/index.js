@@ -12,17 +12,6 @@ function createInstance() {
 
 const instance = createInstance();
 
-/*
-function registerUser(userData) {
-	const url = 'http://localhost:3000/signup'; // api endpoint
-	return axios.post(url, userData);
-}
-
-function loginUser() {
-	const url = 'http://localhost:3000/login';
-	return axios.post(url);
-}
-*/
 // 회원가입 API
 function registerUser(userData) {
 	return instance.post('signup', userData);
