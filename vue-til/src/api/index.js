@@ -1,8 +1,16 @@
 import axios from 'axios';
+import { setInterceptors } from './common/interceptors';
 
-const instance = axios.create({
-	baseURL: process.env.VUE_APP_API_URL,
-});
+// 액시오스 초기화 함수
+function createInstance() {
+	const instance = axios.create({
+		baseURL: process.env.VUE_APP_API_URL,
+	});
+	// axios interceptors
+	return setInterceptors(instance);
+}
+
+const instance = createInstance();
 
 /*
 function registerUser(userData) {
@@ -15,12 +23,19 @@ function loginUser() {
 	return axios.post(url);
 }
 */
+// 회원가입 API
 function registerUser(userData) {
 	return instance.post('signup', userData);
 }
 
+// 로그인 API
 function loginUser(userData) {
 	return instance.post('login', userData);
 }
 
-export { registerUser, loginUser };
+// 학습 노트 데이터를 조회하는 API
+function fetchPosts() {
+	return instance.get('posts');
+}
+
+export { registerUser, loginUser, fetchPosts };

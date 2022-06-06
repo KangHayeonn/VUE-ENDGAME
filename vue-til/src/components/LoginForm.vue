@@ -56,7 +56,7 @@ export default {
 					password: this.password,
 				};
 				const { data } = await loginUser(userData);
-				console.log(data.user.username);
+				this.$store.commit('setToken', data.token);
 				// mutations 호출(연결)
 				this.$store.commit('setUsername', data.user.username);
 				// js 레벨로 이동
