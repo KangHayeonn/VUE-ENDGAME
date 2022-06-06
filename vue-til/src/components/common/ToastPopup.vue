@@ -31,6 +31,7 @@ export default {
 		},
 	},
 	created() {
+		// 이벤트 구독
 		bus.$on('show:toast', this.showToast);
 	},
 	beforeDestroy() {

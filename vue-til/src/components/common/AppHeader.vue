@@ -37,6 +37,7 @@ export default {
 	},
 	methods: {
 		logoutUser() {
+			// 이벤트 발행
 			bus.$emit('show:toast', 'User logged out');
 			this.$store.commit('clearUsername');
 			this.$store.commit('clearToken');
