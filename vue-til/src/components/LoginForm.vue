@@ -55,15 +55,7 @@ export default {
 					password: this.password,
 				};
 				await this.$store.dispatch('LOGIN', userData);
-				// const { data } = await loginUser(userData);
-				// this.$store.commit('setToken', data.token);
-				// // mutations 호출(연결)
-				// this.$store.commit('setUsername', data.user.username);
-				// saveAuthToCookie(data.token);
-				// saveUserToCookie(data.user.username);
-				// js 레벨로 이동
 				this.$router.push('/main');
-				// this.logMessage = `${data.user.username} 님 환영합니다`;
 			} catch (error) {
 				// 에러 핸들링할 코드
 				this.logMessage = error.response.data;
